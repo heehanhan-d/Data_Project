@@ -1,1 +1,1 @@
-# ShoppingMall_server
+# A server that provides information.
