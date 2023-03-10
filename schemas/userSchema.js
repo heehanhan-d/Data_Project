@@ -6,13 +6,6 @@ const UserSchema = new Schema(
     password: { type: String },
     email: { type: String, unique: true },
     phoneNumber: { type: String },
-    address: { type: String },
-    order: {
-      type: [Schema.Types.ObjectId],
-      ref: "Order",
-      default: [],
-    },
-
     role: {
       type: String,
       default: "user",
