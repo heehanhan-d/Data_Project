@@ -22,7 +22,7 @@ export const postJoin = async (req, res) => {
       password: hashedPassword,
       phoneNumber,
     });
-    return res.send("join");
+    return res.send("성공");
   } catch (error) {
     res.status(400).send(error);
   }
