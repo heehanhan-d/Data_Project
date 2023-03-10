@@ -1,5 +1,7 @@
 import { Schema, mongoose } from "mongoose";
-const AutoIncrement = require("mongoose-sequence")(mongoose);
+import Inc from "mongoose-sequence";  
+const AutoIncrement = Inc(mongoose) ;
+
 const UserSchema = new Schema(
   {
     name: { type: String },
