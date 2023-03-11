@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import path from "path";
+import userRouter from "./routes/userRouter";
 // 환경변수 사용
 dotenv.config();
 const port = process.env.SERVER_PORT;
@@ -28,6 +29,9 @@ app.use(express.static(path.join(dirname, "public")));
 app.get("/", (req, res) => {
   res.send("<h1>안녕하세요~<h1>");
 });
+// userRouter 작업중...
+app.use("/api", userRouter);
+
 
 // DB 만들고 연결할 주소
 mongoose.connect(process.env.DB_URL);
