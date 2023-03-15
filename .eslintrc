@@ -1,0 +1,40 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  // "extends": ["airbnb-base", "prettier", "plugin:node/recommended"],
+  "extends": ["airbnb-base", "plugin:node/recommended", "prettier"],
+  // "extends": [],
+
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "__dirname": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+
+  "rules": {
+    // "linebreak-style": ["error", "windows"], // window 환경
+    // "linebreak-style": ["error", "unix"],  // mac 환경
+    "linebreak-style": 0,
+    "prettier/prettier": [
+      "error",
+      { "singleQuote": false, "endOfLine": "auto" }
+    ],
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-plusplus": "off",
+    "no-process-exit": "off",
+    "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-underscore-dangle": 0 // axios 요청을 통해 res.data에 담겨있는 _id를 사용할 이 많은데 eslit에 의 해 제한.
+  }
+}
