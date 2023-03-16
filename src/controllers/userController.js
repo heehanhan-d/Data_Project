@@ -29,10 +29,9 @@ class UserController {
         },
       );
 
-      const isAdmin = false;
+      const isAdmin = false; // 관리자는 따로 테이블에 넣어줍시다.
 
-      res.status(201).json({ token, isAdmin });
-      // return json(token);
+      res.status(201).json({ newUser, token, isAdmin });
     } catch (error) {
       next(error);
     }
