@@ -13,7 +13,7 @@ class UserService {
     // 이메일 중복확인
     const user = await this.userModel.findByEmail(email);
     if (user) {
-      throw new Error("이미 사용중인 이메일 입니다.");
+      throw new Error("이미 사용중인 이메일 입니다."); // 500이 맞나..?
     }
 
     // 비밀번호를 해쉬화해서 회원정보를 만들고
@@ -50,6 +50,8 @@ class UserService {
     const token = jwt.sign({ userId: user._id, pe: user.isAdmin }, secretKey, {
       expiresIn: "24h", // 1일 발급
     });
+
+    // 관리자 스키마 추가 필요!
     const isAdmin = user.isAdmin === true;
 
     return { token, isAdmin };
