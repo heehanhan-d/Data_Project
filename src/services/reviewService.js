@@ -35,7 +35,22 @@ class ReviewService {
 
     return { result: "success" };
   }
-}
+
+  // 리뷰 수정
+  async updateReviewData(reviewId) {
+    const { updatedCount } = await this.reviewModel.updateById(reviewId);
+
+    // 수정에 실패한 경우, 에러 메시지 반환
+    if (updatedCount === 0) {
+      throw new Error(`${reviewId} 리뷰 수정에 실패하였습니다`);
+    }
+
+    return { result: "success" };
+  }
+
+}  
+
 const reviewService = new ReviewService(reviewModel);
+
 
 export { reviewService };

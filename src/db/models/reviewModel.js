@@ -22,6 +22,12 @@ export class ReviewModel {
     const reviews = await Review.find({});
     return reviews;
   }
+
+  //  리뷰 수정
+  async updateById(reviewId) {
+    const updateResult = await Review.findOneAndUpdate({ _id: reviewId }); 
+    return updateResult;
+  }  
 }
 
 const reviewModel = new ReviewModel();

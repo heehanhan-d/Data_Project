@@ -18,7 +18,7 @@ class ReviewController {
       //   throw error;
       // }
 
-      const { userId, guId, dongId, content, reviewId, title } = req.body;
+      const { userId, guId, dongId, title, content, reviewId } = req.body;
       const newReview = await reviewService.addReview({
         userId,
         guId,
@@ -41,6 +41,25 @@ class ReviewController {
       const reviews = await reviewService.getReviews();
 
       res.status(200).json(reviews);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async updateReview(req, res, next) {
+    try {
+      const { userId, guId, dongId, title, content, reviewId } = req.body;
+      // reviewId = req.params.reviewId;
+      const updateReview = await reviewService.updateReviewData({
+        userId,
+        guId,
+        dongId,
+        title,
+        content
+        // satisfactionLevel,
+      });
+    
+      res.status(200).json(updateReview);
     } catch (error) {
       next(error);
     }

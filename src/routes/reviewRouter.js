@@ -6,11 +6,11 @@ const reviewRouter = express.Router();
 
 reviewRouter.post("/review/add", reviewController.addReview);
 reviewRouter.get("/review", reviewController.getReviews);
-// reviewRouter.patch(
-//   "/review/:userId",
-//   loginRequired,
-//   reviewController.setReview,
-// );
+reviewRouter.put(
+  "/review/:reviewId", 
+  // loginRequired,  로그인 필요 테스트 위해 주석 처리 !
+  reviewController.updateReview,
+);
 reviewRouter.delete(
   "/review/:reviewId",
   // loginRequired,  로그인 필요 테스트 위해 주석 처리 !
