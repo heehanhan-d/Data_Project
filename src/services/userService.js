@@ -7,6 +7,7 @@ class UserService {
     this.userModel = userModel;
   }
 
+  
   async addUser(userInfo) {
     const { email, name, password } = userInfo;
 

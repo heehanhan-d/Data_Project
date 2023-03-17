@@ -3,6 +3,7 @@ import Inc from "mongoose-sequence";
 
 const AutoIncrement = Inc(mongoose);
 
+
 const UserSchema = new Schema(
   {
     name: { type: String },
