@@ -37,6 +37,38 @@ class UserController {
     }
   }
 
+/**
+ * @swagger
+ * /api/users/register:
+ *  post:
+ *    tags: [Users]
+ *    summary: User 회원가입 API
+ *    produces:
+ *    - application/json
+ *    parameters:
+ *      - in: "body"
+ *        name: "body"
+ *        description: "회원가입 정보 입력"
+ *        required: true
+ *        schema:
+ *          type: object
+ *          properties:
+ *            name: 
+ *              type: string
+ *            email:
+ *              type: string
+ *            password:
+ *              type: string
+ *    resposes:
+ *      200:
+ *        description: User register success
+ *      500:
+ *        description: Server Error
+ */
+
+
+
+
   //  로그인
   async login(req, res, next) {
     try {
@@ -52,6 +84,29 @@ class UserController {
     }
   }
 }
+
+/**
+ * @swagger
+ * /api/users/login:
+ *  post:
+ *    tags: [Users]
+ *    summary: User 로그인 API
+ *    produces:
+ *    - application/json
+ *    parameters:
+ *    - in: "body"
+ *      name: "body"
+ *      description: "로그인 정보 입력"
+ *      required: true
+ *      schema:
+ *        type: object
+ *        properties: 
+ *          email:
+ *            type: string
+ *          password:
+ *            type: string
+ */
+
 
 const userController = new UserController(userService);
 
