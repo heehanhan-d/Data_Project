@@ -11,4 +11,3 @@ userRouter.post("/users/register", userController.register);
 userRouter.post("/users/login", userController.login);
 
 export default userRouter;
-

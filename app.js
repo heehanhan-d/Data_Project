@@ -6,8 +6,9 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import path from "path";
 import { userRouter, reviewRouter } from "./src/routes";
+import { swaggerUi, specs } from './swagger';
+import swaggerJSDoc from 'swagger-jsdoc';
 // import api from './routes';
-// import { swaggerUi, specs } from './swagger/swagger';
 
 // 환경변수 사용
 dotenv.config();
@@ -17,6 +18,36 @@ const app = express();
 const dirname = path.resolve();
 console.log(dirname, "dirname");
 
+// 스웨거
+const swaggerDefinition = {
+  openapi: "3.0.0",
+  info: {
+    title: "NineLab API",
+    version: "1.0.0",
+    description: "NineLab API",
+  },
+  servers: [
+    {
+      url: "http://localhost:8001",
+    },
+  ],
+};
+
+const options = {
+  swaggerDefinition,
+  apis: ["src/**/*.js"],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+app.get("/swagger.json", (req, res) => {
+  res.json(swaggerSpec);
+});
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  explorer: true,
+})
+);
 
 // CORS 에러 방지
 app.use(cors());
@@ -37,11 +68,17 @@ app.get("/", (req, res) => {
 });
 
 // 라우터 연결
+/**
+ * @swagger
+ * tags:
+ *  name: Reviews
+ *  description: 리뷰 추가 수정 삭제 조회 API
+ *  name: Users
+ *  description: 유저 추가 수정 삭제 조회 API
+ */
+
 app.use("/api", userRouter);
 app.use("/api", reviewRouter);
-
-// // 스웨거
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 
 // DB 만들고 연결할 주소
@@ -58,5 +95,3 @@ app.listen(port, () => {
 });
 
 export default app;
-
-
