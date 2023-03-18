@@ -82,3 +82,4 @@ class ReviewController {
 const reviewController = new ReviewController(reviewService);
 
 export { reviewController };
+

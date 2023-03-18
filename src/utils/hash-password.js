@@ -6,4 +6,3 @@ export default password => {
   return hash.digest("hex");
 };
 
-
