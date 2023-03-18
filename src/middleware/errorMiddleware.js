@@ -4,3 +4,4 @@ const errorMiddleware = async (error, req, res, next) => {
 };
 
 export default errorMiddleware;
+
