@@ -24,8 +24,10 @@ export class ReviewModel {
   }
 
   //  리뷰 수정
-  async updateById(reviewId) {
-    const updateResult = await Review.findOneAndUpdate({ _id: reviewId }); 
+  async updateById(reviewParams) {
+    const id = reviewParams.reviewId;
+    delete reviewParams.reviewId;
+    const updateResult = await Review.findOneAndUpdate({ _id: id }, { $set: reviewParams }); 
     return updateResult;
   }  
 }

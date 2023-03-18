@@ -48,14 +48,15 @@ class ReviewController {
 
   async updateReview(req, res, next) {
     try {
-      const { userId, guId, dongId, title, content, reviewId } = req.body;
-      // reviewId = req.params.reviewId;
+      const { userId, guId, dongId, title, content } = req.body;
+      const reviewId = req.params.reviewId;
       const updateReview = await reviewService.updateReviewData({
         userId,
         guId,
         dongId,
         title,
-        content
+        content,
+        reviewId,
         // satisfactionLevel,
       });
     

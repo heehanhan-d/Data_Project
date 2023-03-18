@@ -6,11 +6,11 @@ const ReviewSchema = new Schema({
     ref: "users",
     required: true,
   },
-  // reviewId: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "reviews",
-  //   required: true,
-  // },
+  //  reviewId: {
+  //    type: Schema.Types.ObjectId,
+  //    ref: "reviews",
+  //    required: true,
+  //  },
   guId: {
     type: String,
     // required: true,
@@ -23,6 +23,7 @@ const ReviewSchema = new Schema({
     type: String,
     // trim: true,
     // required: true,
+    default: "제목을 입력해주세요."
   },
   content: {
     type: String,
