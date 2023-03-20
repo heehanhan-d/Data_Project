@@ -5,3 +5,4 @@ export default password => {
   hash.update(password);
   return hash.digest("hex");
 };
+

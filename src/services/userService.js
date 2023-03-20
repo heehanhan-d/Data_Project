@@ -7,6 +7,7 @@ class UserService {
     this.userModel = userModel;
   }
 
+  
   async addUser(userInfo) {
     const { email, name, password } = userInfo;
 
@@ -61,3 +62,6 @@ class UserService {
 const userService = new UserService(userModel);
 
 export { userService };
+
+  
+  
