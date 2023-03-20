@@ -1,7 +1,7 @@
 {
   "name": "nine-lab",
   "version": "0.0.1",
-  "main": "app.js",
+  "main": "index.js",
   "private": true,
   "type": "module",
   "jest": {
@@ -9,8 +9,8 @@
     "globalTeardown": "./tests/__config__/teardown.js"
   },
   "scripts": {
-    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node app.js",
-    "dev": "nodemon app.js",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js",
+    "dev": "nodemon index.js",
     "test": "jest"
   },
   "dependencies": {
