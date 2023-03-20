@@ -5,9 +5,9 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import path from "path";
+import swaggerJSDoc from "swagger-jsdoc";
 import { userRouter, reviewRouter } from "./src/routes";
-import { swaggerUi, specs } from './swagger';
-import swaggerJSDoc from 'swagger-jsdoc';
+import { swaggerUi, specs } from "./swagger";
 // import api from './routes';
 
 // 환경변수 사용
@@ -44,9 +44,12 @@ app.get("/swagger.json", (req, res) => {
   res.json(swaggerSpec);
 });
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
-  explorer: true,
-})
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, {
+    explorer: true,
+  }),
 );
 
 // CORS 에러 방지
@@ -79,7 +82,6 @@ app.get("/", (req, res) => {
 
 app.use("/api", userRouter);
 app.use("/api", reviewRouter);
-
 
 // DB 만들고 연결할 주소
 mongoose.connect(process.env.DB_URL);

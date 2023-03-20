@@ -1,5 +1,5 @@
-import swaggerUi from 'swagger-ui-express';
-import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUi from "swagger-ui-express";
+import swaggerJsdoc from "swagger-jsdoc";
 
 const options = {
   swaggerDefinition: {
@@ -43,26 +43,26 @@ const options = {
   },
   schemes: ["http", "https"], // 사용 가능한 통신 방식
   description: {
-    "Review": {
+    Review: {
       type: "object",
       properties: {
         userId: {
-          type: "object"
+          type: "object",
         },
         guId: {
-          type: "string"
+          type: "string",
         },
         dongId: {
-          type: "string"
+          type: "string",
         },
         title: {
-          type: "string"
+          type: "string",
         },
         content: {
-          type: "string"
+          type: "string",
         },
         satisfactionLevel: {
-          type: 'number'
+          type: "number",
         },
       },
     },
@@ -72,4 +72,4 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 
-export {swaggerUi, specs};
+export { swaggerUi, specs };

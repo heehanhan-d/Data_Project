@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 
-import { reviewModel } from "../db";
+import { reviewModel } from "../db/models/reviewModel.js";
 
 class ReviewService {
   // 리뷰 작성
@@ -40,10 +40,10 @@ class ReviewService {
   async updateReviewData(reviewParams) {
     const { updatedCount } = await this.reviewModel.updateById(reviewParams);
 
-      // 수정에 실패한 경우, 에러 메시지 반환
-      if (updatedCount === 0) {
-        throw new Error(`${reviewId} 리뷰 수정에 실패하였습니다`);
-      }
+    // 수정에 실패한 경우, 에러 메시지 반환
+    if (updatedCount === 0) {
+      throw new Error(`${reviewId} 리뷰 수정에 실패하였습니다`);
+    }
 
     return { result: "success" };
   }
@@ -51,8 +51,4 @@ class ReviewService {
 
 const reviewService = new ReviewService(reviewModel);
 
-
 export { reviewService };
-
-
-  
