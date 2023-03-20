@@ -6,7 +6,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import path from "path";
 import swaggerJSDoc from "swagger-jsdoc";
-import { userRouter, reviewRouter } from "./src/routes";
+import { userRouter, reviewRouter } from "./src/routes/index.js";
 import { swaggerUi, specs } from "./swagger";
 // import api from './routes';
 
