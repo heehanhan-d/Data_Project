@@ -11,8 +11,6 @@ class ReviewService {
 
   // 리뷰 추가
   async addReview(reviewInfo) {
-    // const { title, userId } = reviewInfo;
-
     // DB 저장
     const createdNewReview = await this.reviewModel.create(reviewInfo);
     return createdNewReview;

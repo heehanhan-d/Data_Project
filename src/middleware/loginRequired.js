@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 const loginRequired = (req, res, next) => {
   // authorization 검증
   if (req.headers.authorization === undefined) {
-    res.status(403).json({
+    res.status(401).json({
       error: "로그인이 필요 서비스입니다.",
       data: null,
     });
@@ -11,7 +11,7 @@ const loginRequired = (req, res, next) => {
   // 토큰 검증
   try {
     const secretKey = process.env.JWT_SECRET_KEY || "secret-key";
-    const token = req.headers.authorization.slice(7);
+    const token = req.headers.authorization.slice(7); // slice 말고 다른 방법으로
     if (!token || token === "null") {
       res.status(401).json({
         result: "forbidden-approach",
@@ -32,7 +32,4 @@ const loginRequired = (req, res, next) => {
   }
 };
 
-
-export default loginRequired;
-
-
+export { loginRequired };

@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 import path from "path";
 import swaggerJSDoc from "swagger-jsdoc";
 import { userRouter, reviewRouter } from "./src/routes/index.js";
-import { swaggerUi, specs } from "./swagger";
+import { swaggerUi, specs } from "./swagger.js";
 // import api from './routes';
 
 // 환경변수 사용
@@ -63,14 +63,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(dirname, "public")));
 
-// app.use("/api", api);
-
-app.get("/", (req, res) => {
-  const title = "9Team Server";
-  res.status(201).json(title);
-});
-
-// 라우터 연결
 /**
  * @swagger
  * tags:
