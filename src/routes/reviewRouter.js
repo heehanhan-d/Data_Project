@@ -1,6 +1,6 @@
 import express from "express";
 import { reviewController } from "../controllers/reviewController.js";
-import { loginRequired } from "../middleware/loginRequired.js";
+// import { loginRequired } from "../middleware/loginRequired.js";
 
 const reviewRouter = express.Router();
 
