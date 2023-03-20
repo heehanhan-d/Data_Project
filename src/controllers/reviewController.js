@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved, node/no-missing-import
 import is from "@sindresorhus/is";
 import { validationResult } from "express-validator";
-import { reviewService } from "../services";
+import { reviewService } from "../services/reviewService.js";
 
 class ReviewController {
   async addReview(req, res, next) {
@@ -35,48 +35,47 @@ class ReviewController {
     }
   }
 
-/**
- * @swagger
- *  /api/review/add:
- *  post:
- *    tags: [Reviews]
- *    summary: 리뷰 등록 API
- *    produces:
- *    - application/json
- *    parameters:
- *      - in: "body"
- *        name: "body"
- *        description: "리뷰 등록 내용 입력"
- *        required: true
- *        schema:
- *          type: object
- *          properties:
- *            userId:
- *              type: objectId
- *              description: "유저 아이디"
- *            guId:
- *              type: string
- *              description: "자치구 아이디"
- *            dongId:
- *              type: string
- *              description: "행정동 아이디"
- *            title:
- *              type: string
- *              description: "리뷰 제목"
- *            content:
- *              type: string
- *              description: "리뷰 내용"
- *            satisfactionLevel:
- *              type: number
- *              description: "만족도"
- *    responses:
- *      200:
- *        description: Review create success
- *      500:
- *        description: Server Error
- * 
- */
-
+  /**
+   * @swagger
+   *  /api/review/add:
+   *  post:
+   *    tags: [Reviews]
+   *    summary: 리뷰 등록 API
+   *    produces:
+   *    - application/json
+   *    parameters:
+   *      - in: "body"
+   *        name: "body"
+   *        description: "리뷰 등록 내용 입력"
+   *        required: true
+   *        schema:
+   *          type: object
+   *          properties:
+   *            userId:
+   *              type: objectId
+   *              description: "유저 아이디"
+   *            guId:
+   *              type: string
+   *              description: "자치구 아이디"
+   *            dongId:
+   *              type: string
+   *              description: "행정동 아이디"
+   *            title:
+   *              type: string
+   *              description: "리뷰 제목"
+   *            content:
+   *              type: string
+   *              description: "리뷰 내용"
+   *            satisfactionLevel:
+   *              type: number
+   *              description: "만족도"
+   *    responses:
+   *      200:
+   *        description: Review create success
+   *      500:
+   *        description: Server Error
+   *
+   */
 
   async getReviews(req, res, next) {
     try {
@@ -89,37 +88,36 @@ class ReviewController {
     }
   }
 
-/**
- * @swagger
- * /api/review/:
- *  get:
- *    tags: [Reviews]
- *    summary: 리뷰 전체 조회 API
- *    responses:
- *      200:
- *        description: Empty or Data
- *        schema:
- *          type: object
- *          properties:
- *            Reviews:
- *              type: object
- *              properties:
- *                userId:
- *                  type: objectId
- *                guId:
- *                  type: string
- *                dongId: 
- *                  type: string
- *                title:
- *                  type: string
- *                content:
- *                  type: string
- *                satisfactionLevel:
- *                  type: number
- *      500:
- *        description: Server Error
- */
-
+  /**
+   * @swagger
+   * /api/review/:
+   *  get:
+   *    tags: [Reviews]
+   *    summary: 리뷰 전체 조회 API
+   *    responses:
+   *      200:
+   *        description: Empty or Data
+   *        schema:
+   *          type: object
+   *          properties:
+   *            Reviews:
+   *              type: object
+   *              properties:
+   *                userId:
+   *                  type: objectId
+   *                guId:
+   *                  type: string
+   *                dongId:
+   *                  type: string
+   *                title:
+   *                  type: string
+   *                content:
+   *                  type: string
+   *                satisfactionLevel:
+   *                  type: number
+   *      500:
+   *        description: Server Error
+   */
 
   async updateReview(req, res, next) {
     try {
@@ -134,51 +132,50 @@ class ReviewController {
         reviewId,
         // satisfactionLevel,
       });
-    
+
       res.status(200).json(updateReview);
     } catch (error) {
       next(error);
     }
   }
 
-/**
- * @swagger
- * /api/review/:reviewId:
- *  put:
- *    tags: [Reviews]
- *    summary: 특정 리뷰 수정 API
- *    produces:
- *      - application/json
- *    parameters:
- *      - in: "body"
- *        name: "body"
- *        description: "자치구, 행정동, 제목, 내용, 만족도 입력"
- *        required: true
- *        schema:
- *          type: object
- *          properties:
- *            userId:
- *              type: objectId
- *            guId:
- *              type: string
- *            dongId:
- *              type: string
- *            title:
- *              type: string
- *            content: 
- *              type: string
- *            satisfactionLevel:
- *              type: number
- *    response:
- *      200:
- *        description: Review change success
- *      404:
- *        description: NotFound
- *      500:
- *        description: Server Error
- * 
- */
-
+  /**
+   * @swagger
+   * /api/review/:reviewId:
+   *  put:
+   *    tags: [Reviews]
+   *    summary: 특정 리뷰 수정 API
+   *    produces:
+   *      - application/json
+   *    parameters:
+   *      - in: "body"
+   *        name: "body"
+   *        description: "자치구, 행정동, 제목, 내용, 만족도 입력"
+   *        required: true
+   *        schema:
+   *          type: object
+   *          properties:
+   *            userId:
+   *              type: objectId
+   *            guId:
+   *              type: string
+   *            dongId:
+   *              type: string
+   *            title:
+   *              type: string
+   *            content:
+   *              type: string
+   *            satisfactionLevel:
+   *              type: number
+   *    response:
+   *      200:
+   *        description: Review change success
+   *      404:
+   *        description: NotFound
+   *      500:
+   *        description: Server Error
+   *
+   */
 
   async deleteReview(req, res, next) {
     try {
@@ -213,10 +210,9 @@ class ReviewController {
  *        description: NotFound
  *      500:
  *        description: Server Error
- * 
+ *
  */
 
 const reviewController = new ReviewController(reviewService);
 
 export { reviewController };
-

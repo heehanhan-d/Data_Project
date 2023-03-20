@@ -36,7 +36,7 @@
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": 0, // axios 요청을 통해 res.data에 담겨있는 _id를 사용할 이 많은데 eslit에 의 해 제한.
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "import/extensions": "off"
   }
 }
-

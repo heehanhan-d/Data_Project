@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "app.js",
   "private": true,
+  "type": "module",
   "jest": {
     "globalSetup": "./tests/__config__/setup.js",
     "globalTeardown": "./tests/__config__/teardown.js"
@@ -12,7 +13,6 @@
     "dev": "nodemon app.js",
     "test": "jest"
   },
-  "type": "module",
   "dependencies": {
     "@sindresorhus/is": "^5.3.0",
     "@std/esm": "^0.26.0",

@@ -1,13 +1,12 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { userModel } from "../db";
+import { userModel } from "../db/models/userModel.js";
 
 class UserService {
   constructor(userModel) {
     this.userModel = userModel;
   }
 
-  
   async addUser(userInfo) {
     const { email, name, password } = userInfo;
 
@@ -62,6 +61,3 @@ class UserService {
 const userService = new UserService(userModel);
 
 export { userService };
-
-  
-  

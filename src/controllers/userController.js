@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved, node/no-missing-import
 import is from "@sindresorhus/is"; // 빈 객체 체크를 위한 모듈
 import jwt from "jsonwebtoken";
-import { userService } from "../services";
+import { userService } from "../services/userService.js";
 
 const appjson = "headers의 Content-Type을 application/json으로 설정해주세요";
 
@@ -37,35 +37,34 @@ class UserController {
     }
   }
 
-/**
- * @swagger
- * /api/users/register:
- *  post:
- *    tags: [Users]
- *    summary: User 회원가입 API
- *    produces:
- *    - application/json
- *    parameters:
- *      - in: "body"
- *        name: "body"
- *        description: "회원가입 정보 입력"
- *        required: true
- *        schema:
- *          type: object
- *          properties:
- *            name: 
- *              type: string
- *            email:
- *              type: string
- *            password:
- *              type: string
- *    resposes:
- *      200:
- *        description: User register success
- *      500:
- *        description: Server Error
- */
-
+  /**
+   * @swagger
+   * /api/users/register:
+   *  post:
+   *    tags: [Users]
+   *    summary: User 회원가입 API
+   *    produces:
+   *    - application/json
+   *    parameters:
+   *      - in: "body"
+   *        name: "body"
+   *        description: "회원가입 정보 입력"
+   *        required: true
+   *        schema:
+   *          type: object
+   *          properties:
+   *            name:
+   *              type: string
+   *            email:
+   *              type: string
+   *            password:
+   *              type: string
+   *    resposes:
+   *      200:
+   *        description: User register success
+   *      500:
+   *        description: Server Error
+   */
 
   //  로그인
   async login(req, res, next) {
@@ -98,13 +97,12 @@ class UserController {
  *      required: true
  *      schema:
  *        type: object
- *        properties: 
+ *        properties:
  *          email:
  *            type: string
  *          password:
  *            type: string
  */
-
 
 const userController = new UserController(userService);
 

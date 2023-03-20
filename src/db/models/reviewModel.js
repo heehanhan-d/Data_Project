@@ -1,6 +1,6 @@
 import { model } from "mongoose";
 
-import ReviewSchema from "../schemas/reviewSchema";
+import ReviewSchema from "../schemas/reviewSchema.js";
 
 const Review = model("reviews", ReviewSchema);
 
@@ -27,9 +27,12 @@ export class ReviewModel {
   async updateById(reviewParams) {
     const id = reviewParams.reviewId;
     delete reviewParams.reviewId;
-    const updateResult = await Review.findOneAndUpdate({ _id: id }, { $set: reviewParams }); 
+    const updateResult = await Review.findOneAndUpdate(
+      { _id: id },
+      { $set: reviewParams },
+    );
     return updateResult;
-  }  
+  }
 }
 
 const reviewModel = new ReviewModel();
