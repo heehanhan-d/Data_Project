@@ -1,4 +1,3 @@
-import loginRequired from "./loginRequired";
+import loginRequired from "./loginRequired.js";
 
 export { loginRequired };
-

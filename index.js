@@ -63,14 +63,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(dirname, "public")));
 
-// app.use("/api", api);
-
-app.get("/", (req, res) => {
-  const title = "9Team Server";
-  res.status(201).json(title);
-});
-
-// 라우터 연결
 /**
  * @swagger
  * tags:

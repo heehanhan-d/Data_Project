@@ -11,12 +11,12 @@ class ReviewController {
         throw new Error("json으로 contetn-type 설정 필요");
       }
 
-      // const errors = validationResult(req);
-      // if (!errors.isEmpty()) {
-      //   const error = new Error("Validation fail, entered data is incorrect.");
-      //   error.status(400);
-      //   throw error;
-      // }
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        const error = new Error("Validation fail, entered data is incorrect.");
+        error.status(400);
+        throw error;
+      }
 
       const { userId, guId, dongId, title, content, reviewId } = req.body;
       const newReview = await reviewService.addReview({
