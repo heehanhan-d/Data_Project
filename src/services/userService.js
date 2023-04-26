@@ -62,6 +62,3 @@ class UserService {
 const userService = new UserService(userModel);
 
 export { userService };
-
-  
-  

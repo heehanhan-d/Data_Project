@@ -19,8 +19,8 @@ class ReviewService {
   }
 
   // 리뷰 조회
-  async getReviews() {
-    const reviews = await this.reviewModel.getAllReviews();
+  async getReviews(page = 1, limit = 10) {
+    const reviews = await this.reviewModel.find().skip((page - 1) * limit).limit(limit);
     return reviews;
   }
 
@@ -51,8 +51,4 @@ class ReviewService {
 
 const reviewService = new ReviewService(reviewModel);
 
-
 export { reviewService };
-
-
-  
